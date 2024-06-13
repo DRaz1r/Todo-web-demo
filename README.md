@@ -1,5 +1,5 @@
 # 简介
-
+    golang + React + taildwindcss
 # 启动
 
 ### 后端
