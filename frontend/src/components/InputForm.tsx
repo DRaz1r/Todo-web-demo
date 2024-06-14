@@ -2,6 +2,7 @@ import { useState, useContext } from 'react'
 import { WORK_ON_PROGRESS } from '../constants'
 import { client } from '../libs/axios'
 import { TodoContext } from '../provider/TodoProvider'
+import { Box, Button, TextField, Typography, Paper } from '@mui/material';
 
 export const InputForm = () => {
   const [todoName, setTodoName] = useState('')
@@ -24,19 +25,27 @@ export const InputForm = () => {
   }
 
   return (
-    <div className="w-auto h-30 mb-4 p-4 border border-gray-200 rounded shadow-lg">
-      <p className="mb-2 font-bold">添加新任务</p>
-      <input
-        placeholder="学习Golang"
-        className="mr-4 border shadow-md border-teal-500 rounded"
-        onChange={onChangeTodoName}
-      />
-      <button
-        onClick={addTodo}
-        className="px-2 h-7 border border-white rounded bg-teal-400 shadow-md text-white"
-      >
-        追加
-      </button>
-    </div>
+    <Paper elevation={3} sx={{ p: 4, mb: 4 }}>
+      <Typography variant="h6" gutterBottom>
+        添加新任务
+      </Typography>
+      <Box sx={{ display: 'flex', alignItems: 'center' }}>
+        <TextField
+          placeholder="学习Golang"
+          variant="outlined"
+          size="small"
+          onChange={onChangeTodoName}
+          sx={{ mr: 2, flex: 1 }}
+        />
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={addTodo}
+          sx={{ height: '40px' }}
+        >
+          追加
+        </Button>
+      </Box>
+    </Paper>
   )
 }
